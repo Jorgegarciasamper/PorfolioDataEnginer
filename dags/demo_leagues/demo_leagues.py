@@ -24,7 +24,7 @@ import pandas as pd
 import time
 import random
 import os
-from utils import get_data,data_processing
+from utils import get_data,data_processing,extract_league_data
 from datetime import datetime
 
 
