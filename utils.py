@@ -36,6 +36,10 @@ def data_processing(df):
     return df_final
 
 def extract_league_data(league, url):
-    df = get_data(url, league)
-    df.to_csv(f'./{league}_positions.csv', index=False)  # Guarda el archivo CSV para cada liga
+    """Extrae datos de la liga especificada y guarda el resultado en un CSV."""
+    df = get_data(url, league)  # Llama a la función get_data para obtener los datos
+    if not df.empty:  # Verifica que el DataFrame no esté vacío
+        df.to_csv('./premier_positions.csv',index=False) #df.to_csv(f'./{league.lower()}_positions.csv', index=False)  # Guarda el archivo CSV para cada liga
+    else:
+        logging.warning(f"No se obtuvieron datos para la liga: {league}")
     return df
